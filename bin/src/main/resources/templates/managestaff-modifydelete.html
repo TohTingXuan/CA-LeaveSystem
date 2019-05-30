@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>
+<div align="center">
+		<h1>Modify Staff List</h1>
+	
+	<table>
+		<tr>
+		<th>Staff Id</th>
+		<th>Staff Name</th>
+		<th>Designation Id</th>
+		<th>Password</th>
+		<th>Boss Id</th>
+		<th>Modify</th>
+		<th>Delete</th>
+		</tr>
+		
+		<tr th:each="staff:${slist}">
+			<td th:text="${staff.staffId}">STAFFID</td>
+			<td th:text="${staff.staffName}">STAFFNAME</td>
+			<td th:text="${staff.designation.id}">DESIGNATIONID</td>
+			<td th:text="${staff.password}">PASSWORD</td>
+			<td th:text="${staff.staff.staffId}">BOSSID</td>
+<!-- 			<td th:if="${staff.staff == null}"> null</td> -->
+<!-- 			<td th:if="${staff.staff != null}" th:text="${staff.staff.staffId}"> null</td> -->
+			    
+			<td><a th:href="${'/admin/staff/modify/'+staff.staffId}" class="btn btn-default">Modify</a></td>
+			<td><a th:href="${'/admin/staff/delete/'+staff.staffId}" th:if="${staff.staffId != 1}" class="btn btn-danger">Delete</a></td>
+		</tr>
+	</table>
+	<br>
+	<a th:href="@{/admin/staffs1}" class="bclass">Back To Staff List</a> 
+	<a th:href="@{/admin/staff}" class="bclass">Back To Main Staff page</a>
+
+	</div>
+</body>
+</html>

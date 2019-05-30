@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employees on Leave during the designated Month</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>
+<div align="center">
+<br><br>
+	<form th:action="@{/movementReg/selectedMonth}" method="post">
+		<table>
+			<tr>
+				<td>
+					<select name="monthDropDown">
+					  <option th:value="0" hidden= selected>Select Month</option>	
+					  <option th:value="1" th:text="January"></option>
+					  <option th:value="2" th:text="February"></option>
+					  <option th:value="3" th:text="March"></option>
+					  <option th:value="4" th:text="April"></option>
+					  <option th:value="5" th:text="May"></option>
+					  <option th:value="6" th:text="June"></option>
+					  <option th:value="7" th:text="July"></option>
+					  <option th:value="8" th:text="August"></option>
+					  <option th:value="9" th:text="September"></option>
+					  <option th:value="10" th:text="October"></option>
+					  <option th:value="11" th:text="November"></option>
+					  <option th:value="12" th:text="December"></option>
+					</select>
+				</td>
+				<td></td>
+				<td></td>
+				<td><a><input type="submit" value="Find"/></a></td>
+			</tr>
+		</table>
+	</form>	
+	
+	<div th:if="${#lists.isEmpty(listLeave)}">
+	<h1>No Employees on Leave during the designated Month</h1>
+	</div>
+	<div th:unless="${#lists.isEmpty(listLeave)}">
+	<h1>Employees on leave</h1>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Staff Name</th>
+				<th>StartDate</th>
+				<th>EndDate</th>
+				<th>LeaveType</th>
+				<th>Status</th>
+			</tr>		
+		</thead>
+		<tbody>
+			<tr th:each="leave : ${listLeave}">
+			<td th:text="${leave.staff.staffName}">StartDate</td>
+			<td th:text="${leave.startDate}">StartDate</td>
+			<td th:text="${leave.endDate}">EndDate</td>
+			<td th:text="${leave.leavetype.typeName}">LeaveType</td>
+			<td th:text="${leave.status}">Status</td>		
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</div>
+</body>
+</html>

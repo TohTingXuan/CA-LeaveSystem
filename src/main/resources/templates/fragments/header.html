@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+          rel="stylesheet" media="screen" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../../static/css/style.css" />
+</head>
+<body>
+
+<div class="topnav">
+  <a>
+  <label th:text="${session.User.getDesignation().getDesignationName()}"></label>
+  <label th:text="${session.User.getStaffName()}"></label>
+  </a> 
+  <div class="topnav-center">
+  <a class="active">Leave Application Processing System (LAPS)</a>
+  </div>
+  <div class="topnav-right">
+  <a th:href="@{/logout}">Log Out</a>  
+  </div>      
+  </div>
+  </body>
+</html>

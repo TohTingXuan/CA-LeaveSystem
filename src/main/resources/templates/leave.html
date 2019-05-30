@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title></title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>
+<div align="center">
+	<div th:if="${#lists.isEmpty(listLeave)}">
+	<h1>No leave records found</h1>
+	</div>
+	<div th:unless="${#lists.isEmpty(listLeave)}">
+	<h1>My Leave History</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>StartDate</th>
+				<th>EndDate</th>
+				<th>LeaveType</th>
+				<th>Status</th>
+				<th></th>
+			</tr>		
+		</thead>
+		<tbody>
+			<tr th:each="leave : ${listLeave}">
+			<td th:text="${leave.startDate}">StartDate</td>
+			<td th:text="${leave.endDate}">EndDate</td>
+			<td th:text="${leave.leavetype.typeName}">LeaveType</td>
+			<td th:text="${leave.status}">Status</td>	
+			<td>
+				<a th:href="@{'/leave/viewDetails/' + ${leave.id}}">View Details</a>
+			</td>	
+			</tr>
+		</tbody>
+	</table>
+	</div>
+</div>
+</body>
+</html>

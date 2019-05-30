@@ -1,0 +1,195 @@
+/* Add a black background color to the top navigation */
+
+/* .appForm {
+  width:700px;
+  margin-left: 400px; 
+  
+} */
+.formcontainer
+{
+	postion:absolute;
+	background:#fff;
+	top: 15vh;
+	padding:30px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0px #000;
+}
+
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Open Sans';
+}
+
+/* Set padding to keep content from hitting the edges */
+/* .body-content {
+    padding-left: 200px;
+    padding-right: 15px;
+} */
+
+table
+{
+	font-size: 18px;
+	background: #fff;
+	border-collapse: collapse;
+	margin-bottom: 10px; 	
+}
+th
+{
+	font-size: 18px;
+	font-weight: 450px;
+	color: #039;
+	padding: 10px 8px 1px 10px;
+	border-bottom: 2px solid #6678b1;
+}
+td
+{
+	color: #669;
+	padding: 8px 8px 0px 10px;
+	
+}
+tbody tr:hover td
+{
+	color: #009;
+}
+
+h1 {
+	font-weight: 600;
+	font-size: 24px;
+	color: #355681;
+	padding: 20px;
+}
+h2 {
+	font-weight: 600;
+	font-size: 22px;
+	color: #355681;
+	padding: 20px;
+}
+
+.bclass{
+  position:;
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+  text-decoration: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.abclass{
+  position:absolute;
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+  text-decoration: none;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 16px 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.bclass:hover {
+  background-color: #b3b3cc;
+  color: white;
+}
+
+
+.topnav-right {
+  float: right;
+  margin-right: 10px; 
+}
+.topnav-center {
+  margin-left: 440px; 
+}
+
+.topnav {
+  background-color: #b3b3cc;
+  overflow: hidden;
+  height: 100px; /* Set the height of the header */
+  width: 100%; /* Set the width of the header */
+  /*margin-left: 190px;*/
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;	
+  color: white;
+  padding: 22px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  padding-top: 35px;
+}
+
+ Change the color of links on hover 
+.topnav a:hover {
+  background-color: #b3b3cc;
+  color: white;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #b3b3cc;
+  color: white;
+}
+
+/* The sidebar menu */
+.sidenav {
+  height: 100%;  
+  /* Full-height: remove this if you want "auto" height */
+  width: 190px; /* Set the width of the sidebar */
+  position: absolute; /* Fixed sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 100px; /* Stay at the top */
+  left: 0;
+  background-color: #f0f0f5;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 40px;
+  overflow: auto;
+
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #355681;
+  font-weight: 500;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  background-color: #b3b3cc;
+  color: white;
+}
+
+/* Style page content */
+.main {
+  margin-left: 190px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+

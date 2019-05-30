@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"
+          href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css"
+          rel="stylesheet" media="screen" />
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="../../static/css/style.css" />
+</head>
+<body>
+
+<div class="sidenav">
+  <a th:href="@{/leave/apply}">Apply Leave</a>
+  <a th:href="@{/leave}">My Leave History</a>
+  <a th:href="@{/leave/balance}">My Leave Balance</a>  
+  <span th:if="${session.User.getDesignation().getDesignationName() == 'Manager'}">
+  </br>
+  <a th:href="@{/manager/leaverequest}">View Leave Application for Approval</a>
+  <a th:href="@{/manager/leavehistory}">View Subordinates Leave History</a>
+  <a th:href="@{/manager/dateselect}">Generate Leave Report</a>
+  </span>
+  <span th:if="${session.User.getDesignation().getDesignationName() == 'Admin'}">
+  </br>
+  <a th:href="@{/admin/holiday-main}">Manage public holidays</a>
+  <a th:href="@{/admin/leavetype-main}">Manage leave types</a>
+  <a th:href="@{/admin/leavebalance-main}">Manage Leave Entitlement</a>
+  <a th:href="@{/admin/staff}">Manage Staff</a>
+  </span>
+</div>
+</body>
+</html>

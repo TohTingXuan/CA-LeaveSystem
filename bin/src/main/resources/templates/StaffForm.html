@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>This is the form page</h1>
+	<form th:object="${staff}" th:action="@{/staffs}" method="post">
+		<fieldset>
+			Name:<input type="text" th:field="*{staffName}">
+			<p th:if="${#fields.hasErrors('staffName')}" th:errors="*{staffName}">Name
+				Error</p>
+		</fieldset>
+		<fieldset>
+			Designation:<input type="text" th:field="*{designationId}">
+		</fieldset>
+		<fieldset>
+			Password:<input type="text" th:field="*{password}">
+		</fieldset>
+		<fieldset>
+			Submit<input type="submit" name="Save" />
+		</fieldset>
+	</form>
+</body>
+</html>

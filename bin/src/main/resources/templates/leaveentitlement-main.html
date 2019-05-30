@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+<meta charset="ISO-8859-1">
+<title>Manage Leave Entitlement</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+
+</head>
+<body>
+	<div align="center" class="appForm">
+	</br>
+		<h5>Select a staff to update leave entitlement.</h5>
+		<table id="shit"  class="table table-striped table-bordered" style="width:800px">
+			<thead>
+			<tr>
+				<th>StaffID</th>
+				<th>StaffName</th>
+				<th>TypeName</th>
+				<th>Balance</th>
+				<th></th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr th:each=" leavebalance : ${allbalance}">
+				<td th:text="${leavebalance.staff.staffId}"></td>
+			
+				<td th:text="${leavebalance.staff.staffName}"></td>
+			
+				<td th:text="${leavebalance.leavetype.typeName}"></td>
+				
+				<td th:text="${leavebalance.balance}"></td>
+			
+				<td><a
+					th:href="${'/admin/leavebalance/edit/' + leavebalance.staff.staffId + '/' + leavebalance.leavetype.typeId }">Update</a></td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+<script type = "text/javascript">
+		$(document).ready(function() {
+  			  $('#shit').DataTable();
+	    } );
+</script>
+</body>
+</html>

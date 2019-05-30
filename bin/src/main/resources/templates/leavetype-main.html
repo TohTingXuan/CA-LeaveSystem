@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Manage Leave Types</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>
+<div align="center">
+	<h1>Manage Leave Types</h1>
+		<a th:href="@{/admin/leavetype/add}" class="bclass">Add a new Leave Type</a> <a
+			th:href="@{/admin/leavetype/delete}" class="bclass">Remove a Leave Type</a> 
+		<br><br>
+
+		<h2>List of leave details</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Staff Designation</th>
+					<th></th>
+					<th>Leave Type</th>
+					<th></th>
+					<th>Maximum Leave</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each=" leavedetail : ${ldlist}">
+					<td th:text="${leavedetail.designation.designationName}">designation
+						name</td>
+					<td></td>
+					<td th:text="${leavedetail.leaveType.typeName}">leave type</td>
+					<td></td>
+					<td th:text="${leavedetail.maximumLeave}">maxleave</td>
+					<td></td>
+					<td><a
+						th:href="${'/admin/leavetype/edit/' + leavedetail.leaveType.typeId + '/' + leavedetail.designation.id }">Edit</a>
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</body>
+</html>

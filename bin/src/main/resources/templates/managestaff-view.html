@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Current Staff List</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>
+<div align="center">
+	<h1>Current Staff List</h1>	
+	
+	<table>
+		<tr>
+		<th>StaffId</th>
+		<th>StaffName</th>
+		<th>DesignationId</th>
+		<th>BossId</th>
+		
+		</tr>
+		
+		<tr th:each="staff:${Slist}">
+			<td th:text="${staff.staffId}">STAFFID</td>
+			<td th:text="${staff.staffName}">STAFFNAME</td>
+			<td th:text="${staff.designation.id}">DESIGNATIONID</td>
+			<td th:text="${staff.staff.staffId}">BOSSID</td>			
+		</tr>
+	</table>
+			<a th:href="@{/admin/staff}" class="bclass">Back to main Staff page</a>
+</div>
+</body>
+</html>

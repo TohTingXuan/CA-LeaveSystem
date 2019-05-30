@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Subordinates' leave history</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>
+<div align="center">
+	<div th:if="${#lists.isEmpty(listOfSubordinates)}">
+	<h1>No assigned subordinates</h1>
+	</div>
+	<div th:unless="${#lists.isEmpty(listOfSubordinates)}">
+	<h1>View Subordinates' leave history</h1>
+        <table>
+        	<thead>
+            	<tr>
+                	<th>Staff Name</th>
+                	<th></th>
+                	<th></th>
+            	</tr>
+            </thead>
+            <tbody>
+            	<tr th:each="listOfSubordinates:${listOfSubordinates}">
+					<td th:text="${listOfSubordinates.staffName}">staff_name</td>
+					<td></td>
+					<td>
+					<a th:href="@{'/manager/leavehistory/view/' + ${listOfSubordinates.staffId}}">
+					View Complete Leave History</a>
+					</td>
+            	</tr>
+            </tbody>
+        </table>
+	</div>
+</div>
+</body>
+</html>

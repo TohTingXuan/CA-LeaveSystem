@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>
+<div align="center">
+		<h1>Modify Staff Here</h1>
+			<form th:object="${staff}" th:action="@{/admin/saveModified}" method="post">
+			
+			<table>
+			<tbody>
+				<tr>
+					<td>Name:</td>
+					<td><input type="text" th:field="*{staffName}" /></td>
+					<td th:if="${#fields.hasErrors('staffName')}"
+						th:errors="*{staffName}" style="color: red"></td>
+				</tr>
+				<tr>
+					<td>Designation:</td>
+					<td>
+					<select	th:field="*{designation.id}">
+							<option th:each="designation:${dlist}"
+								th:value="${designation.id}"
+								th:text="${designation.designationName }"
+								th:selected="${designation.id eq designation}"></option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Manager Name:</td>
+					<td>
+					<select th:field="*{staff.staffId}">
+					<option th:each="boss:${bosslist}" th:value="${boss.staffId}"
+					th:text="${boss.staffName }" th:selected="${staff.staffId eq boss}">
+					</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Password:</td>
+					<td><input type="text" th:field="*{password}" /></td>
+					<td th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}" style="color: red"></td>
+				</tr>
+				<tr>
+					<td><input type="hidden" th:field="*{staffId}"></td>
+				</tr>
+			</tbody>
+			</table>	 
+			<a><input type="submit" value="Save" class="bclass" /></a>				
+			</form>
+
+	</div>
+</body>
+</html>

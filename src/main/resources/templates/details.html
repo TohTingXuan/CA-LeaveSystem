@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Leave Details</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>	
+	<div align="center">
+	<h1>Leave Details</h1>
+	<div th:each="leave : ${leaveDetails}">
+	<table>
+		<tbody>
+			<tr>
+			<td>LeaveType:</td>
+			<td th:text="${leave.leavetype.typeName}"></td>
+			</tr>
+			<tr>
+			<td>StartDate:</td>
+			<td th:text="${leave.startDate}"></td>	
+			</tr>
+			<tr>
+			<td>EndDate:</td>
+			<td th:text="${leave.endDate}"></td>	
+			</tr>
+			<tr>
+			<td>Status:</td>
+			<td th:text="${leave.status}"></td>	
+			</tr>
+			<tr>
+			<td>Reason:</td>
+			<td th:text="${leave.reason}"></td>	
+			</tr>
+			<tr>
+			<td>Work Instruction:</td>
+			<td th:text="${leave.workInstruction}"></td>	
+			</tr>
+			<tr>
+			<td>Contact:</td>
+			<td th:text="${leave.contact}"></td>	
+			</tr>
+			<tr>
+			<td>Comment:</td>
+			<td th:text="${leave.comment}"></td>	
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<br>
+				<span th:if="${leave.status == 'APPLIED'}">
+				<a class="bclass" th:href="@{'/leave/edit/' + ${leave.id}}">Edit</a>
+				
+				<a class="bclass" th:href="@{'/leave/delete/' + ${leave.id}}">Delete</a>
+				</span>
+				
+				<span th:if="${leave.status == 'APPROVED'}">
+				<a class="bclass" th:href="@{'/leave/cancel/' + ${leave.id}}">Cancel</a>
+				</span>				
+	</div>
+</div>
+</body>
+</html>

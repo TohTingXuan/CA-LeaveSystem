@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Manage public holidays</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>
+<div align="center">
+	<h1>Manage public holidays</h1>
+	<a th:href="@{/admin/holiday/add}" class="bclass">Add a Holiday</a>
+
+	<br><br><br>
+	<h2>List of public holidays in system for year <span th:text="${currentYear}">now</span></h2>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Holiday Name</th>
+				<th>Date of holiday</th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each=" holiday : ${holidayList}">
+				<td th:text="${holiday.name}">Holiday Name</td>
+				<td th:text="${holiday.date}">Date of holiday</td>
+				<td></td>
+				<td><a th:href="${'/admin/holiday/edit/' + holiday.id}" >Edit</a></td>
+				<td></td>
+				<td><a th:href="${'/admin/holiday/delete/' + holiday.id}" >Delete</a></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

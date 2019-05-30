@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>My Leave Balance</title>
+<th:block th:replace="fragments/header"></th:block>
+<th:block th:replace="fragments/sidebar"></th:block>
+</head>
+<body>
+<div align="center">
+	<h1>My Leave Balance</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>LeaveType</th>
+				<th>Balance(Number of Days)</th>
+			</tr>		
+		</thead>
+		<tbody>
+			<tr th:each="leaveBal : ${listBalanceLeave}">
+			<td th:text="${leaveBal.leavetype.typeName}">Leave Type</td>
+			<td th:text="${leaveBal.balance}">Balance</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
